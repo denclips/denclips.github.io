@@ -35,7 +35,7 @@ You can revoke DenClips' access through your TikTok account's authorised app set
 
 ## 7. Contact
 
-For privacy questions, contact: **[INSERT A REAL CONTACT EMAIL BEFORE SUBMISSION]**
+For privacy questions, contact: **[denicramedia@gmail.com]**
 
 ## 8. Changes
 
