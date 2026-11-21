@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DenClips Studio</title>
+<style>
+:root{--bg:#101b19;--panel:#192824;--gold:#e6c66b;--cream:#f5f0df;--muted:#b9c5bd;--line:#354640}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--cream);font-family:Arial,sans-serif}
+header{padding:26px 6%;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.brand{font-size:25px;font-weight:800;color:var(--gold);text-decoration:none}header a:last-child{color:var(--cream)}
+main{max-width:850px;margin:48px auto;padding:0 20px}h1{font-size:34px;margin-bottom:8px}p{color:var(--muted);line-height:1.55}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px;margin:22px 0}
+.status{display:inline-block;padding:7px 11px;border-radius:30px;background:#493c20;color:#f4d98c;font-size:13px;font-weight:bold}
+button{border:0;border-radius:8px;background:var(--gold);color:#14201c;padding:13px 18px;font-weight:bold;cursor:pointer}
+button:disabled{opacity:.55;cursor:not-allowed}
+input[type=file]{display:block;margin:16px 0;color:var(--muted);max-width:100%}
+.note{font-size:13px;color:var(--muted)}.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.step{border:1px solid var(--line);border-radius:9px;padding:15px}.step b{color:var(--gold)}
+footer{text-align:center;padding:30px;color:var(--muted);font-size:13px}a{color:var(--gold)}
+</style>
+</head>
+<body>
+<header><a class="brand" href="/">DenClips</a><a href="/">Main website</a></header>
+<main>
+<h1>DenClips Studio</h1>
+<p>Prepare factual, useful and entertaining content about careers, work, housing and everyday life in Ireland.</p>
+<section class="panel">
+<span class="status">SANDBOX SETUP IN PROGRESS</span>
+<h2>Connect your TikTok account</h2>
+<p>Authorise the DenClips TikTok account through TikTok for Developers. The connection will only be enabled after the secure OAuth service is configured.</p>
+<button type="button" disabled>Connect TikTok — not configured yet</button>
+<p class="note">No TikTok login or account data is collected on this page at this stage.</p>
+</section>
+<section class="panel">
+<h2>Prepare a video</h2>
+<p>Select an MP4 or MOV file to check it locally before the TikTok upload workflow is connected.</p>
+<input id="video" type="file" accept="video/mp4,video/quicktime">
+<p id="fileInfo" class="note" aria-live="polite">No video selected.</p>
+<button id="upload" type="button" disabled>Upload to TikTok — not configured yet</button>
+<p class="note">Selecting a file here does not upload it anywhere. TikTok publishing is not yet connected.</p>
+</section>
+<section class="panel">
+<h2>Integration workflow</h2>
+<div class="steps">
+<div class="step"><b>01</b><p>Authorise DenClips with TikTok Login Kit.</p></div>
+<div class="step"><b>02</b><p>Choose an approved video and confirm its details.</p></div>
+<div class="step"><b>03</b><p>Send the video through TikTok Content Posting API.</p></div>
+<div class="step"><b>04</b><p>Display TikTok's real upload status and draft result.</p></div>
+</div>
+</section>
+</main>
+<footer><a href="/terms.html">Terms</a> · <a href="/privacy.html">Privacy</a></footer>
+<script>
+const input=document.getElementById('video'),info=document.getElementById('fileInfo');
+input.addEventListener('change',()=>{const f=input.files[0];if(!f){info.textContent='No video selected.';return;}info.textContent=f.name+' · '+(f.size/1024/1024).toFixed(1)+' MB · '+f.type;});
+</script>
+</body>
+</html>
